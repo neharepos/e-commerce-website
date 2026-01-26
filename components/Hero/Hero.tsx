@@ -53,12 +53,12 @@ const Hero = ({handleOrderPopup}) => {
 
 
     return (
-        <div className='relative overflow-hidden min-h-[550px] lg:p-5
-        sm:min-h-[650px] bg-gray-100 flex justify-center 
+        <div className='relative overflow-hidden min-h-137.5 lg:p-5
+        sm:min-h-162.5 bg-gray-100 flex justify-center 
         items-center dark:bg-gray-950 dark:text-white duration-200'>
             {/* background pattern */}
-            <div className='h-[700px] w-[600px] bg-blue-300 opacity-20
-            absolute -top-1/2 right-0 rounded-3xl rotate-45 z-[9]'>
+            <div className='h-175 w-150 bg-blue-300 opacity-20
+            absolute -top-1/2 right-0 rounded-3xl rotate-45 z-9'>
 
             </div>
             {/* hero section */}
@@ -101,10 +101,10 @@ const Hero = ({handleOrderPopup}) => {
                                     <div 
                                     data-aos="zoom-in"
                                     data-aos-once="true"
-                                    className='relative z-[10]'>
+                                    className='relative z-10'>
                                         <Image src={data.img} alt=""
                                         priority={true}
-                                            className='w-[200px] h-[200px] sm:h-[450px] sm:w-[450px]
+                                            className='w-50 h-50 sm:h-112.5 sm:w-112.5
                                  sm:scale-105 lg:scale-120 object-contain mx-auto'/>
                                     </div>
                                 </div>
