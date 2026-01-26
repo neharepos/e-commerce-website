@@ -23,21 +23,22 @@ const DarkMode = () => {
     }, [theme]);
 
     return (
-        // Added a fixed width and height to the container so the images don't collapse
         <div className='relative w-12 h-5'>
+            {/* Light Mode Button (Visible when theme is Light) */}
             <img 
                 src={LightButton.src}
-                alt="Switch to Dark" 
+                alt="Light Mode" 
                 onClick={() => setTheme("dark")}
                 className={`w-12 cursor-pointer drop-shadow-md transition-all duration-300 absolute right-0 z-10 
                 ${theme === "dark" ? "opacity-0 invisible" : "opacity-100 visible"}`}
             />
 
+            {/* Dark Mode Button (Visible when theme is Dark) */}
             <img 
                 src={DarkButton.src}
-                alt="Switch to Light"
+                alt="Dark Mode"
                 onClick={() => setTheme("light")} 
-                className={`w-12 cursor-pointer drop-shadow-md transition-all duration-300 absolute right-0 
+                className={`w-12 cursor-pointer drop-shadow-md transition-all duration-300 absolute right-0 z-10 
                 ${theme === "light" ? "opacity-0 invisible" : "opacity-100 visible"}`}
             />
         </div>

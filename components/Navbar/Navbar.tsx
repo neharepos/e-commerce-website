@@ -55,8 +55,8 @@ const DropdownLinks = [
 
 export default function Navbar() {
   return (
-        <div className='shadow-md bg-white dark:bg-gray-400 dark:text-white duration-200 relative z-40'>
-            <div className='bg-orange-300  opacity-70 py-2'>
+        <div className='shadow-md bg-white dark:bg-violet-400 dark:text-white duration-200 relative z-40'>
+            <div className='bg-blue-300  opacity-70 py-2'>
                 <div className='mx-auto px-4 sm:px-12 flex justify-between items-center'>
                     <div>
                         <a href="#" className='font-bold text-2xl sm:text-3xl flex gap-2'><img className="size-12 object-contain" src="https://github.com/dilshad-ahmed/shopsy/blob/main/src/assets/logo.png?raw=true" alt="Logo" />
@@ -68,11 +68,11 @@ export default function Navbar() {
                         <div className='relative group hidden sm:block'>
                             <input type="text"
                                 placeholder="search"
-                                className='w-[200px] sm:w-[200px]
-                         group-hover:w-[300px] transition-all
+                                className='w-50 sm:w-50
+                         group-hover:w-74 transition-all
                          duration-300 rounded-full border
                          border-gray-200 px-2 py-1
-                         focus:outline-none focus:border-1
+                         focus:outline-none focus:border
                          focus:border-orange-400 dark:border-gray-500
                          dark:bg-gray-800
                          '
@@ -138,8 +138,8 @@ export default function Navbar() {
                                 />
                             </span>
                         </a>
-                        <div className='absolute z-[9999] hidden
-                         group-hover:block w-[150px] rounded-md
+                        <div className='absolute z-9999 hidden
+                         group-hover:block w-37.5 rounded-md
                           bg-white p-2 text-black shadow-md'> 
                             <ul>
                                 {DropdownLinks.map((data) => (
