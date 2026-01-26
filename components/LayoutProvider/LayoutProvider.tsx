@@ -8,6 +8,8 @@ import "aos/dist/aos.css";
 import TopProducts from "../TopProducts/TopProducts";
 import Banner from "../Banner/Banner";
 import Notify from "../Notify/Notify";
+import Testimonials from "../Testimonials/Testimonials";
+import Footer from "../Footer/Footer";
 
 export default function LayoutProvider({ children }: { children: React.ReactNode }) {
   const [orderPopup, setOrderPopup] = useState(false);
@@ -36,6 +38,8 @@ export default function LayoutProvider({ children }: { children: React.ReactNode
       <Banner/>
       <Notify/>
       <Products/>
+      <Testimonials/>
+      <Footer/>
       <main>{children}</main>
       
       {/* If you have a Popup component, you'd place it here: */}
