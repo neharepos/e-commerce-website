@@ -1,5 +1,13 @@
+"use client"
 import React from 'react'
-import Slider from "react-slick"
+// import Slider from "react-slick"
+import dynamic from "next/dynamic"; // Import dynamic from next
+
+// Dynamically import Slider and disable SSR for it
+const Slider = dynamic(() => import("react-slick"), {
+  ssr: false,
+  loading: () => <div className="h-50 w-full bg-gray-100 animate-pulse"></div> 
+});
 
 
 
