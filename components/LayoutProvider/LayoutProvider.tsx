@@ -10,6 +10,7 @@ import Banner from "../Banner/Banner";
 import Notify from "../Notify/Notify";
 import Testimonials from "../Testimonials/Testimonials";
 import Footer from "../Footer/Footer";
+import Popup from "../Popup/Popup";
 
 export default function LayoutProvider({ children }: { children: React.ReactNode }) {
   const [orderPopup, setOrderPopup] = useState(false);
@@ -39,11 +40,12 @@ export default function LayoutProvider({ children }: { children: React.ReactNode
       <Notify/>
       <Products/>
       <Testimonials/>
-      <Footer/>
       <main>{children}</main>
+      <Footer/>
+      
       
       {/* If you have a Popup component, you'd place it here: */}
-      {/* <Popup orderPopup={orderPopup} setOrderPopup={setOrderPopup} /> */}
+      <Popup orderPopup={orderPopup} setOrderPopup={setOrderPopup} />
     </div>
   );
 }
