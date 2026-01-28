@@ -11,7 +11,7 @@ const CategoryPage = () => {
     (item) => item.category.toLowerCase() === category
   );
   return (
-    <div className="pt-24 container min-h-screen">
+    <div className="pt-24 p-4 border m-14 container min-h-screen">
       <h1 className="text-3xl font-bold capitalize mb-8">
         {category.replace("-", " ")} Collection
       </h1>
@@ -22,6 +22,7 @@ const CategoryPage = () => {
              {/* Reuse your Product Card UI here */}
              <img src={product.img.src} alt={product.title} className="..." />
              <h3>{product.title}</h3>
+             <h3>{product.rating}</h3>
           </div>
         ))}
       </div>
