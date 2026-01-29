@@ -13,7 +13,7 @@ const CategoryPage = () => {
   );
 
   return (
-    <div className="pt-24 px-4 md:px-14 container mx-auto min-h-screen">
+    <div className="pt-24 px-4 md:px-14 container mx-auto min-h-screen pb-4">
       <h1 className="text-3xl font-bold capitalize mb-8 border-b pb-4">
         {categoryName?.replace("-", " ")} Collection
       </h1>
@@ -21,7 +21,7 @@ const CategoryPage = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {filteredProducts.map((product) => (
           <div key={product.id} className="group flex flex-col h-full">
-            {/* Image Container with Fixed Aspect Ratio */}
+           
             <div className="relative aspect-square overflow-hidden rounded-lg bg-gray-100 mb-4">
               <img
                 src={product.img.src}
@@ -30,7 +30,7 @@ const CategoryPage = () => {
               />
             </div>
 
-            {/* Product Details */}
+         
             <div className="flex flex-col flex-grow">
               <h3 className="text-sm text-gray-700 font-medium line-clamp-2 mb-1">
                 {product.title}
@@ -41,7 +41,7 @@ const CategoryPage = () => {
                   <span className="text-yellow-500 text-sm">★</span>
                   <span className="text-sm text-gray-500">{product.rating}</span>
                 </div>
-                {/* Add price here if available in your data */}
+                
                 <p className="text-lg font-bold text-gray-900 mt-1">
                   ${product.price || "0.00"}
                 </p>

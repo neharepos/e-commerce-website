@@ -5,6 +5,7 @@ import Img3 from "../../public/women/womenn3.jpeg";
 import Img4 from "../../public/women/women4.jpg";
 import Img5 from "../../public/women/women5.jpg";
 import { IoStarSharp } from "react-icons/io5";
+import Link from "next/link";
 
 const ProductsData = [
   {
@@ -13,6 +14,7 @@ const ProductsData = [
     title: "Women Ethnic",
     rating: 5.0,
     color: "white",
+    category: "ethnic",
     aosDelay: "0",
   },
   {
@@ -21,12 +23,14 @@ const ProductsData = [
     title: "Women western",
     rating: 4.5,
     color: "Red",
+    category: "western",
     aosDelay: "200",
   },
   {
     id: 3,
     img: Img3,
     title: "Goggles",
+    category: "goggles",
     rating: 4.7,
     color: "brown",
     aosDelay: "400",
@@ -37,6 +41,7 @@ const ProductsData = [
     title: "Printed T-Shirt",
     rating: 4.4,
     color: "Yellow",
+    category: "printedtshirts",
     aosDelay: "600",
   },
   {
@@ -45,6 +50,7 @@ const ProductsData = [
     title: "Fashin T-Shirt",
     rating: 4.5,
     color: "Pink",
+    category: "fashiontshirts",
     aosDelay: "800",
   },
 ];
@@ -69,7 +75,11 @@ const Products = () => {
                     {/* card section */}
                     {
                         ProductsData.map((data) => (
-
+                              <Link 
+    href={`/Products/${data.category}`} 
+    key={data.id}
+    className="cursor-pointer" // Changes the mouse to a hand icon
+  >
                             <div 
                             data-aos="fade-up"
                             data-aos-delay={data.aosDelay}
@@ -88,9 +98,11 @@ const Products = () => {
                                 </div>
                                 </div> 
                             </div>
+                            </Link>
                         ))
                     }
                 </div>
+                
                 {/* view all button */}
                 <div className='flex justify-center'>
                   <button className='text-center mt-10
@@ -100,6 +112,7 @@ const Products = () => {
             </div>
         </div>
     </div>
+  
   )
 }
 
