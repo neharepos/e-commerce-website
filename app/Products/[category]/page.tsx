@@ -31,7 +31,7 @@ const CategoryPage = () => {
             </div>
 
          
-            <div className="flex flex-col flex-grow">
+            <div className="flex flex-col grow">
               <h3 className="text-sm text-gray-700 font-medium line-clamp-2 mb-1">
                 {product.title}
               </h3>
