@@ -1,61 +1,58 @@
 "use client";
 import { useParams } from "next/navigation";
+import { useState } from "react"; // Added for sorting state
 import { ProductsData } from "../../data/products/page";
 
 const CategoryPage = () => {
   const { category } = useParams();
+  const [sortBy, setSortBy] = useState("default"); // New state to track order
 
-  // Ensure category is a string to prevent errors during .toLowerCase()
   const categoryName = Array.isArray(category) ? category[0] : category;
 
+  // 1. Filter first
   const filteredProducts = ProductsData.filter(
     (item) => item.category.toLowerCase() === categoryName?.toLowerCase()
   );
 
+  // 2. Order/Sort the filtered results
+  const orderedProducts = [...filteredProducts].sort((a, b) => {
+    if (sortBy === "price-low") return Number(a.price) - Number(b.price);
+    if (sortBy === "price-high") return Number(b.price) - Number(a.price);
+    if (sortBy === "rating") return b.rating - a.rating;
+    return 0; // Default (original data order)
+  });
+
   return (
     <div className="pt-24 px-4 md:px-14 container mx-auto min-h-screen pb-4">
-      <h1 className="text-3xl font-bold capitalize mb-8 border-b pb-4">
-        {categoryName?.replace("-", " ")} Collection
-      </h1>
+      <div className="flex justify-between items-center mb-8 border-b pb-4">
+        <h1 className="text-3xl font-bold capitalize">
+          {categoryName?.replace("-", " ")} Collection
+        </h1>
+
+        {/* Sorting Dropdown */}
+        <select 
+          className="border p-2 rounded-md bg-white dark:bg-gray-800 outline-none text-sm"
+          onChange={(e) => setSortBy(e.target.value)}
+        >
+          <option value="default">Default Order</option>
+          <option value="price-low">Price: Low to High</option>
+          <option value="price-high">Price: High to Low</option>
+          <option value="rating">Highest Rated</option>
+        </select>
+      </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-        {filteredProducts.map((product) => (
+        {orderedProducts.map((product) => (
           <div key={product.id} className="group flex flex-col h-full">
-           
+            {/* ... keep your existing image and info UI here ... */}
             <div className="relative aspect-square overflow-hidden rounded-lg bg-gray-100 mb-4">
-              <img
-                src={product.img.src}
-                alt={product.title}
-                className="h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
-              />
+               <img src={product.img.src} alt={product.title} className="h-full w-full object-cover" />
             </div>
-
-         
-            <div className="flex flex-col grow">
-              <h3 className="text-sm text-gray-700 font-medium line-clamp-2 mb-1">
-                {product.title}
-              </h3>
-              
-              <div className="mt-auto">
-                <div className="flex items-center gap-1">
-                  <span className="text-yellow-500 text-sm">★</span>
-                  <span className="text-sm text-gray-500">{product.rating}</span>
-                </div>
-                
-                <p className="text-lg font-bold text-gray-900 mt-1">
-                  ${product.price || "0.00"}
-                </p>
-              </div>
-            </div>
+            <h3 className="text-sm font-medium">{product.title}</h3>
+            <p className="font-bold">₹{product.price}</p>
           </div>
         ))}
       </div>
-
-      {filteredProducts.length === 0 && (
-        <div className="text-center py-20 text-gray-500">
-          No products found in this category.
-        </div>
-      )}
     </div>
   );
 };

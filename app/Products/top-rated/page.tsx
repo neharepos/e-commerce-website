@@ -9,7 +9,7 @@ const TopRatedPage = () => {
     .sort((a, b) => b.rating - a.rating);
 
   return (
-    <div className="pt-24 px-4 container mx-auto min-h-screen">
+    <div className="pt-24 px-4 container mx-auto min-h-screen pb-6">
       <h1 className="text-3xl font-bold mb-8 border-b pb-4">Top Rated Collection</h1>
       
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
