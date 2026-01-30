@@ -56,6 +56,9 @@ const ProductsData = [
 ];
 
 const Products = () => {
+  const topRatedProducts = [...ProductsData]
+    .sort((a, b) => b.rating - a.rating)
+    .slice(0, 5);
   return (
     <div className="mt-14 mb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-75">

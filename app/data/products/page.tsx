@@ -47,6 +47,12 @@ import Img45 from "../../../public/mens/Img45.jpg"
 import Img46 from "../../../public/mens/Img46.jpg"
 import Img47 from "../../../public/mens/Img47.jpg"
 import Img48 from "../../../public/mens/Img48.jpg"
+import Img49 from "../../../public/electronics/Img49.jpg"
+import Img50 from "../../../public/electronics/Img50.jpg"
+import Img51 from "../../../public/electronics/Img51.jpg"
+import Img52 from "../../../public/electronics/Img52.webp"
+import Img53 from "../../../public/electronics/Img53.webp"
+
 
 
 
@@ -592,6 +598,62 @@ export const ProductsData = [
   price: "2199",
   color: "Light Blue",
   aosDelay: "500",
+},
+{
+  id: 49,
+  img: Img49,
+  title: "Smartphone",
+  slug: "smartphone",
+  rating: 4.5,
+  category: "electronics",
+  price: "25000",
+  color: "black",
+  aosDelay: "200",
+},
+{
+  id: 50,
+  img: Img50,
+  title: "Laptop",
+  slug: "laptop",
+  rating: 4.8,
+  category: "electronics",
+  price: "65000",
+  color: "silver",
+  aosDelay: "400",
+},
+{
+  id: 51,
+  img: Img51,
+  title: "Wireless Headphones",
+  slug: "wireless-headphones",
+  rating: 4.3,
+  category: "electronics",
+  price: "3000",
+  color: "blue",
+  aosDelay: "600",
+},
+{
+  id: 52,
+  img: Img52,
+  title: "Smart Watch",
+  slug: "smart-watch",
+  rating: 4.6,
+  category: "electronics",
+  price: "5000",
+  color: "black",
+  aosDelay: "800",
+},
+{
+  id: 53,
+  img: Img53,
+  title: "Bluetooth Speaker",
+  slug: "bluetooth-speaker",
+  rating: 4.4,
+  category: "electronics",
+  price: "2500",
+  color: "red",
+  aosDelay: "1000",
 }
+
   
 ];

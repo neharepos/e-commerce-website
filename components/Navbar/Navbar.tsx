@@ -14,22 +14,22 @@ const Menu = [
     {
         id: 2,
         name: "Top Rated",
-        link: "/#services",
+        link: "/Products/top-rated",
     },
     {
         id: 3,
         name: "Kids Wear",
-        link: "/#",
+        link: "/Products/kids",
     },
     {
         id: 4,
         name: "Mens Wear",
-        link: "/#",
+        link: "/Products/men",
     },
     {
         id: 5,
         name: "Electronics",
-        link: "/#",
+        link: "/Products/electronics",
     },
 ];
 
@@ -38,7 +38,7 @@ const DropdownLinks = [
     {
         id: 1,
         name: "Trending Products",
-        link: "/#",
+        link: "/Products/trending",
     },
     {
         id: 2,
