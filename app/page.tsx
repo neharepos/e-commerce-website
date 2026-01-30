@@ -9,6 +9,7 @@ import TopProducts from "@/components/TopProducts/TopProducts";
 import Banner from "@/components/Banner/Banner";
 import Notify from "@/components/Notify/Notify";
 import Testimonials from "@/components/Testimonials/Testimonials";
+import Popup from "@/components/Popup/Popup";
 
 export default function Home() {
   const [orderPopup, setOrderPopup] = useState(false);
@@ -25,7 +26,8 @@ export default function Home() {
       <Notify/>
       <Products/>
       <Testimonials/>
-
+      <Popup orderPopup={orderPopup}
+       setOrderPopup={setOrderPopup}/>
     </div>
   );
 }
