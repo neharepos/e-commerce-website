@@ -43,12 +43,12 @@ const DropdownLinks = [
     {
         id: 2,
         name: "Best Selling",
-        link: "/#",
+        link: "/Products/best-selling",
     },
     {
         id: 3,
         name: "Top Rated",
-        link: "/#",
+        link: "/Products/top-rated",
     },
 ];
 

@@ -12,7 +12,7 @@ const TrendingPage = () => {
     .slice(0, 8); // Showing the top 8 trending items
 
   return (
-    <div className="pt-24 px-4 md:px-14 container mx-auto min-h-screen">
+    <div className="pt-24 px-4 md:px-14 container mx-auto min-h-screen pb-6">
       <div className="mb-10 text-center">
         <h1 className="text-4xl font-bold mb-2">Trending Now</h1>
         <p className="text-gray-500">The most loved pieces from our latest collections.</p>
