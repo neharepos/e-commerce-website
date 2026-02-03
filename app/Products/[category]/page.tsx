@@ -1,6 +1,7 @@
 "use client";
 import { useParams } from "next/navigation";
-import { useState } from "react"; // Added for sorting state
+import { useState } from "react";
+import Link from "next/link"; // Added for sorting state
 import { ProductsData } from "../../data/products/page";
 
 const CategoryPage = () => {
@@ -42,7 +43,15 @@ const CategoryPage = () => {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+       
+        
         {orderedProducts.map((product) => (
+            <Link 
+    key={product.id} 
+    href={`/Products/${categoryName}/item/${product.id}`} // This creates the path /product/123
+    className="group flex flex-col h-full cursor-pointer"
+  >
+
           <div key={product.id} className="group flex flex-col h-full">
             {/* ... keep your existing image and info UI here ... */}
             <div className="relative aspect-square overflow-hidden rounded-lg bg-gray-100 mb-4">
@@ -50,7 +59,9 @@ const CategoryPage = () => {
             </div>
             <h3 className="text-sm font-medium">{product.title}</h3>
             <p className="font-bold">₹{product.price}</p>
+          
           </div>
+         </Link>
         ))}
       </div>
     </div>

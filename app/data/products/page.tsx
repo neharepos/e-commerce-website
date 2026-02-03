@@ -69,6 +69,7 @@ export const ProductsData = [
     price: "8000",
     color: "white",
     isBestSeller: true,
+    description: "A premium handcrafted ethnic ensemble featuring intricate embroidery and high-quality silk fabric. Perfect for weddings and festive grand occasions.",
     aosDelay: "0",
   },
   {
@@ -81,6 +82,7 @@ export const ProductsData = [
     price: "2000",
     color: "white",
     isBestSeller: true,
+    description: "Elegant daily wear ethnic suit set. Lightweight cotton fabric with breathable weave, ideal for summer gatherings and office wear.",
     aosDelay: "0",
   },
   {
@@ -93,6 +95,7 @@ export const ProductsData = [
     price: "3000",
     color: "white",
     isBestSeller: true,
+    description: "Stylish Anarkali style ethnic wear with floral prints. Comes with a matching dupatta and comfortable leggings for a complete look.",
     aosDelay: "0",
   },
   {
@@ -105,6 +108,7 @@ export const ProductsData = [
     price: "4000",
     color: "white",
     isBestSeller: false,
+    description: "Classic traditional wear with a modern silhouette. Features gold foil printing and a comfortable fit for long-duration wear.",
     aosDelay: "0",
   },
   {
@@ -117,6 +121,7 @@ export const ProductsData = [
     price: "2000",
     color: "white",
     isBestSeller: false,
+    description: "Simple yet sophisticated ethnic tunic. Can be paired with jeans or palazzos for a versatile fusion look.",
     aosDelay: "0",
   },
   {
@@ -129,6 +134,7 @@ export const ProductsData = [
     color: "white",
     price: "5000",
     isBestSeller: true,
+    description: "Designer festive wear set. Highly detailed thread work on the neckline and sleeves makes this a standout piece for celebrations.",
     aosDelay: "0",
   },
   {
@@ -141,6 +147,7 @@ export const ProductsData = [
     price: "800",
     color: "white",
     isBestSeller: true,
+    description: "Chic western top with a contemporary cut. Made from soft jersey fabric that offers both style and flexibility for daily wear.",
     aosDelay: "0",
   },
   {
@@ -153,6 +160,7 @@ export const ProductsData = [
     price: "9000",
     color: "pink",
     isBestSeller: true,
+    description: "Luxury evening gown in a soft pink hue. Features a satin finish and elegant draping for high-end parties and events.",
     aosDelay: "0",
   },
   {
@@ -165,6 +173,7 @@ export const ProductsData = [
     price: "1000",
     color: "white",
     isBestSeller: false,
+    description: "Minimalist casual dress for women. Effortlessly stylish and easy to pair with sneakers or heels.",
     aosDelay: "0",
   },
   {
@@ -177,6 +186,7 @@ export const ProductsData = [
     price: "900",
     color: "white",
     isBestSeller: true,
+    description: "Modern off-shoulder top designed for the fashion-forward. Breathable fabric makes it perfect for outdoor summer brunches.",
     aosDelay: "0",
   },
   {
@@ -189,6 +199,7 @@ export const ProductsData = [
     price: "800",
     color: "white",
     isBestSeller: false,
+    description: "Classic button-down western shirt. A wardrobe staple that transitions perfectly from work to dinner.",
     aosDelay: "0",
   },
   {
@@ -201,6 +212,7 @@ export const ProductsData = [
     price: "400",
     color: "white",
     isBestSeller: false,
+    description: "Basic everyday western tee. Durable stitching and high cotton content for maximum comfort.",
     aosDelay: "0",
   },
   {
@@ -213,6 +225,7 @@ export const ProductsData = [
     price: "800",
     color: "white",
     isBestSeller: false,
+    description: "Stylish UV-protection sunglasses paired with a casual western aesthetic. Lightweight frames for all-day comfort.",
     aosDelay: "0",
   },
   {
@@ -225,6 +238,7 @@ export const ProductsData = [
     price: "3000",
     color: "white",
     isBestSeller: false,
+    description: "Premium polarized lenses with a designer frame. Reduces glare while adding a sophisticated touch to your outfit.",
     aosDelay: "0",
   },
   {
@@ -237,6 +251,7 @@ export const ProductsData = [
     price: "4000",
     color: "white",
     isBestSeller: true,
+    description: "Luxury aviator-style goggles. Features scratch-resistant lenses and gold-tone hardware for a high-fashion look.",
     aosDelay: "0",
   },
   {
@@ -249,6 +264,7 @@ export const ProductsData = [
     price: "2000",
     color: "white",
     isBestSeller: false,
+    description: "Classic cat-eye goggles for a vintage feel. Perfect for beach vacations and sunny city walks.",
     aosDelay: "0",
   },
   {
@@ -261,6 +277,7 @@ export const ProductsData = [
     price: "1000",
     color: "white",
     isBestSeller: false,
+    description: "Sporty wrap-around goggles. Durable build designed for active women who enjoy outdoor sports.",
     aosDelay: "0",
   },
   {
@@ -273,6 +290,7 @@ export const ProductsData = [
     price: "2100",
     color: "white",
     isBestSeller: false,
+    description: "Trendy oversized square frames. Provides maximum coverage and a bold fashion statement.",
     aosDelay: "0",
   },
   {
@@ -285,6 +303,7 @@ export const ProductsData = [
     price: "800",
     color: "white",
     isBestSeller: true,
+    description: "Artistic graphic print t-shirt. High-definition printing technology ensures the colors stay vibrant after many washes.",
     aosDelay: "0",
   },
   {
@@ -297,6 +316,7 @@ export const ProductsData = [
     price: "500",
     color: "white",
     isBestSeller: false,
+    description: "Abstract pattern t-shirt for a unique look. Soft blend fabric provides a flattering fit for all body types.",
     aosDelay: "0",
   },
   {
@@ -309,6 +329,7 @@ export const ProductsData = [
     price: "300",
     color: "white",
     isBestSeller: false,
+    description: "Affordable casual print tee. Lightweight and breathable, making it a great choice for loungewear.",
     aosDelay: "0",
   },
   {
@@ -321,6 +342,7 @@ export const ProductsData = [
     price: "900",
     color: "white",
     isBestSeller: false,
+    description: "Inspirational quote printed tee. Made from sustainable cotton with a focus on ethical manufacturing.",
     aosDelay: "0",
   },
   {
@@ -333,6 +355,7 @@ export const ProductsData = [
     price: "870",
     color: "white",
     isBestSeller: false,
+    description: "Floral print summer t-shirt. Adds a touch of femininity to your casual denim outfit.",
     aosDelay: "0",
   },
   {
@@ -345,6 +368,7 @@ export const ProductsData = [
     price: "400",
     color: "white",
     isBestSeller: false,
+    description: "Modern pop-art printed t-shirt. Bold colors and a relaxed neck design for a cool, youthful vibe.",
     aosDelay: "0",
   },
   {
@@ -357,6 +381,7 @@ export const ProductsData = [
     price: "500",
     color: "white",
     isBestSeller: false,
+    description: "High-fashion fitted t-shirt. Designed with a unique ribbed texture that elevates the standard tee.",
     aosDelay: "0",
   },
   {
@@ -369,6 +394,7 @@ export const ProductsData = [
     price: "300",
     color: "white",
     isBestSeller: false,
+    description: "Budget-friendly fashion tee. Simple, clean lines and a classic crew neck for everyday versatility.",
     aosDelay: "0",
   },
   {
@@ -381,6 +407,7 @@ export const ProductsData = [
     price: "300",
     color: "white",
     isBestSeller: false,
+    description: "Soft-touch fashion t-shirt. Excellent moisture-wicking properties keep you dry and comfortable.",
     aosDelay: "0",
   },
   {
@@ -393,6 +420,7 @@ export const ProductsData = [
     price: "600",
     color: "white",
     isBestSeller: false,
+    description: "V-neck fashion t-shirt with a slimming silhouette. Great for layering under jackets or cardigans.",
     aosDelay: "0",
   },
   {
@@ -405,6 +433,7 @@ export const ProductsData = [
     price: "900",
     color: "white",
     isBestSeller: true,
+    description: "Premium oversized fashion tee. Made from heavyweight cotton for that high-end streetwear look.",
     aosDelay: "0",
   },
   {
@@ -417,6 +446,7 @@ export const ProductsData = [
     price: "200",
     color: "white",
     isBestSeller: false,
+    description: "Basic crop-top fashion tee. A trendy choice for pairing with high-waisted skirts or pants.",
     aosDelay: "0",
   },
   {
@@ -430,6 +460,7 @@ export const ProductsData = [
     price: "899",
     color: "Blue",
     isBestSeller: false,
+    description: "Smart and classic polo shirt for boys. Breathable pique cotton fabric with a ribbed collar for a sharp look.",
     aosDelay: "0",
   },
   {
@@ -443,6 +474,7 @@ export const ProductsData = [
     price: "599",
     color: "Yellow",
     isBestSeller: false,
+    description: "Fun and vibrant graphic t-shirt for active boys. Soft fabric ensures no irritation during playtime.",
     aosDelay: "100",
   },
   {
@@ -456,6 +488,7 @@ export const ProductsData = [
     price: "1299",
     color: "Dark Blue",
     isBestSeller: true,
+    description: "Comfortable denim joggers with an elasticated waistband. Combines the look of jeans with the comfort of track pants.",
     aosDelay: "200",
   },
   {
@@ -469,6 +502,7 @@ export const ProductsData = [
     price: "999",
     color: "White/Green",
     isBestSeller: false,
+    description: "Lightweight summer shirt featuring cool stripes. Perfect for family outings and holiday trips.",
     aosDelay: "300",
   },
   {
@@ -482,6 +516,7 @@ export const ProductsData = [
     price: "1599",
     color: "Grey",
     isBestSeller: true,
+    description: "Cozy grey hoodie for chilly days. Features a soft fleece lining and a spacious kangaroo pocket.",
     aosDelay: "400",
   },
   {
@@ -495,6 +530,7 @@ export const ProductsData = [
     price: "699",
     color: "Red",
     isBestSeller: false,
+    description: "Bright red cotton shorts. Durable fabric that stands up to all-day running and climbing.",
     aosDelay: "500",
   },
   {
@@ -508,6 +544,7 @@ export const ProductsData = [
     price: "1299",
     color: "Pink",
     isBestSeller: true,
+    description: "Beautiful pink floral dress for girls. Features a flared hem and soft inner lining for a princess-like feel.",
     aosDelay: "0",
   },
   {
@@ -521,6 +558,7 @@ export const ProductsData = [
     price: "899",
     color: "White",
     isBestSeller: false,
+    description: "Delicate white top with colorful embroidery on the shoulders. Adds a sweet and stylish touch to any outfit.",
     aosDelay: "100",
   },
   {
@@ -534,6 +572,7 @@ export const ProductsData = [
     price: "999",
     color: "Light Blue",
     isBestSeller: false,
+    description: "Trendy light blue denim skirt. Features an adjustable waistband to ensure the perfect fit as they grow.",
     aosDelay: "200",
   },
   {
@@ -547,6 +586,7 @@ export const ProductsData = [
     price: "499",
     color: "Purple",
     isBestSeller: false,
+    description: "Super-stretchy purple leggings. Great for pairing with tunics or wearing under dresses for extra coverage.",
     aosDelay: "300",
   },
   {
@@ -560,6 +600,7 @@ export const ProductsData = [
     price: "2499",
     color: "Red",
     isBestSeller: true,
+    description: "Stunning red gown for special parties. Layers of tulle create a voluminous look that's perfect for birthdays.",
     aosDelay: "400",
   },
   {
@@ -573,6 +614,7 @@ export const ProductsData = [
     price: "599",
     color: "Peach",
     isBestSeller: false,
+    description: "Adorable peach t-shirt with a cute graphic. Soft cotton-rich fabric keeps them comfy all day long.",
     aosDelay: "500",
   },
   {
@@ -585,6 +627,7 @@ export const ProductsData = [
     price: "2499",
     color: "Indigo",
     isBestSeller: true,
+    description: "Classic indigo slim-fit jeans. Features a hint of stretch for movement and a timeless five-pocket design.",
     aosDelay: "0",
   },
   {
@@ -597,6 +640,7 @@ export const ProductsData = [
     price: "1899",
     color: "White",
     isBestSeller: false,
+    description: "Breathable white linen shirt for men. Keeps you cool in hot weather while maintaining a sharp, relaxed aesthetic.",
     aosDelay: "100",
   },
   {
@@ -609,6 +653,7 @@ export const ProductsData = [
     price: "799",
     color: "Black",
     isBestSeller: false,
+    description: "Edgy black graphic t-shirt. High-quality screen print on 100% combed cotton for ultimate comfort.",
     aosDelay: "200",
   },
   {
@@ -621,6 +666,7 @@ export const ProductsData = [
     price: "1299",
     color: "Khaki",
     isBestSeller: false,
+    description: "Classic khaki shorts for a clean weekend look. Durable twill fabric that gets softer with every wash.",
     aosDelay: "300",
   },
   {
@@ -633,6 +679,7 @@ export const ProductsData = [
     price: "3499",
     color: "Olive Green",
     isBestSeller: true,
+    description: "Stylish olive green bomber jacket. Lightweight yet warm, making it the perfect layering piece for transitional weather.",
     aosDelay: "400",
   },
   {
@@ -645,6 +692,7 @@ export const ProductsData = [
     price: "2199",
     color: "Light Blue",
     isBestSeller: false,
+    description: "Premium light blue Oxford shirt. Features a classic button-down collar and a crisp finish for professional settings.",
     aosDelay: "500",
   },
   {
@@ -657,6 +705,7 @@ export const ProductsData = [
     price: "25000",
     color: "black",
     isBestSeller: true,
+    description: "Latest generation smartphone with a high-resolution AMOLED display and a multi-lens camera system for professional-grade photos.",
     aosDelay: "200",
   },
   {
@@ -669,6 +718,7 @@ export const ProductsData = [
     price: "65000",
     color: "silver",
     isBestSeller: true,
+    description: "High-performance silver laptop featuring a powerful processor and ultra-fast SSD. Ideal for professionals and students alike.",
     aosDelay: "400",
   },
   {
@@ -681,6 +731,7 @@ export const ProductsData = [
     price: "3000",
     color: "blue",
     isBestSeller: false,
+    description: "Immersive blue wireless headphones with noise-cancellation technology. Enjoy up to 20 hours of crystal-clear playback on a single charge.",
     aosDelay: "600",
   },
   {
@@ -693,6 +744,7 @@ export const ProductsData = [
     price: "5000",
     color: "black",
     isBestSeller: false,
+    description: "Advanced black smartwatch with fitness tracking, heart rate monitoring, and smartphone notifications. Waterproof design for active lifestyles.",
     aosDelay: "800",
   },
   {
@@ -705,7 +757,7 @@ export const ProductsData = [
     price: "2500",
     color: "red",
     isBestSeller: false,
+    description: "Portable red bluetooth speaker with powerful bass and long battery life. Perfect for outdoor parties and home entertainment.",
     aosDelay: "1000",
   }
 ];
-
