@@ -9,13 +9,13 @@ const TopRatedPage = () => {
     .sort((a, b) => b.rating - a.rating);
 
   return (
-    <div className="pt-24 px-4 container mx-auto min-h-screen pb-6">
+    <div className="pt-24 px-4 container mx-auto min-h-screen pb-6 pl-12 pr-12">
       <h1 className="text-3xl font-bold mb-8 border-b pb-4">Top Rated Collection</h1>
       
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {topProducts.map((product) => (
           <div key={product.id} className="group border rounded-xl p-3 hover:shadow-lg transition-all">
-            <div className="aspect-[3/4] overflow-hidden rounded-lg mb-4">
+            <div className="aspect-3/4 overflow-hidden rounded-lg mb-4">
               <img 
                 src={product.img.src} 
                 alt={product.title} 

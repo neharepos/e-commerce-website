@@ -35,14 +35,14 @@ const BestSellingPage = () => {
 
             <h3 className="font-bold text-lg line-clamp-1">{product.title}</h3>
             <div className="flex justify-between items-center mt-2">
-              <p className="text-xl font-bold text-gray-900">₹{product.price}</p>
+              <p className="text-xl font-bold text-gray-700">₹{product.price}</p>
               <div className="flex items-center gap-1">
                 <IoStarSharp className="text-yellow-400" />
                 <span className="text-sm font-semibold">{product.rating}</span>
               </div>
             </div>
             
-            <button className="w-full mt-4 bg-black text-white py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <button className="w-full mt-4 bg-black text-white py-2 rounded-lg opacity-50 group-hover:opacity-100 transition-opacity duration-300">
               Add to Cart
             </button>
           </div>

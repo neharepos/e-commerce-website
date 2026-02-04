@@ -27,6 +27,10 @@ export default async function ProductDetailPage({ params }: { params: { id: stri
              <button className="bg-black text-white px-10 py-3 rounded-full hover:bg-gray-800">
                 Add to Cart
              </button>
+
+             <button className=" ml-8 bg-black text-white px-10 py-3 rounded-full hover:bg-gray-800">
+                Buy Now
+             </button>
           </div>
        </div>
     </div>

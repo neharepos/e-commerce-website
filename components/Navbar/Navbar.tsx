@@ -3,6 +3,7 @@ import { GoSearch } from "react-icons/go";
 import { PiShoppingCartFill } from "react-icons/pi";
 import DarkMode from "./DarkMode";
 import { MdArrowDropDown } from "react-icons/md";
+import Link from "next/link";
 
 // ... (Keep your Menu and DropdownLinks arrays)
 const Menu = [
@@ -86,6 +87,10 @@ const Navbar = ({ handleOrderPopup }) => {
               <span className="group-hover:block hidden transition-all duration-200">Cart</span>
               <PiShoppingCartFill className="text-xl text-white drop-shadow-sm cursor-pointer" />
             </button>
+
+            <Link href="/login" className="hover:text-primary transition-colors">
+  Login
+</Link>
 
             {/* Darkmode switch */}
             <div>
