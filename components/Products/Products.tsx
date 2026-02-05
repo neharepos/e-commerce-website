@@ -6,6 +6,7 @@ import Img4 from "../../public/women/women4.jpg";
 import Img5 from "../../public/women/women5.jpg";
 import { IoStarSharp } from "react-icons/io5";
 import Link from "next/link";
+// import { useCart } from "@/app/context/CartContex";
 
 const ProductsData = [
   {
