@@ -6,6 +6,8 @@ type Product = {
   id: number;
   title: string;
   price: number;
+  img: string;
+  // quantity: number;
 };
 
 type CartItem = Product & {
@@ -24,14 +26,14 @@ const CartContext = createContext<CartContextType | null>(null);
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [cart, setCart] = useState<CartItem[]>([]);
 
-  // ✅ Load cart from localStorage
+  //  Load cart from localStorage
   useEffect(() => {
     const stored = localStorage.getItem("cart");
     if (!stored) return;
     setCart(JSON.parse(stored));
   }, []);
 
-  // ✅ Save cart to localStorage
+  //  Save cart to localStorage
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
@@ -48,7 +50,15 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         );
       }
 
-      return [...prev, { ...product, quantity: 1 }];
+      // return [...prev, { ...product, quantity: 1 }];
+    return [
+      ...prev,
+      {
+        ...product,      // ✅ keeps img
+        quantity: 1,
+      },
+    ];
+    
     });
   };
 

@@ -7,7 +7,7 @@ import { FaCartPlus } from "react-icons/fa6";
 import Link from "next/link";
 import { useCart } from "@/app/context/CartContext";
 
-// ... (Keep your Menu and DropdownLinks arrays)
+
 const Menu = [
   {
     id: 1,
@@ -113,7 +113,7 @@ const Navbar = ({ handleOrderPopup }) => {
 
             <Link
               href="/login"
-              className="hover:text-primary transition-colors"
+              className="hover:text-primary transition-colors pl-3"
             >
               Login
             </Link>

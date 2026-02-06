@@ -28,6 +28,7 @@ export default function ProductClient({ product }: { product: any }) {
                 id: product.id,
                 title: product.title,
                 price: Number(product.price),
+                img: product.img.src,
               })
             }
             className="bg-black text-white px-10 py-3 rounded-full hover:bg-gray-800"

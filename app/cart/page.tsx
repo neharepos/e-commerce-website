@@ -9,15 +9,14 @@ export default function CartPage() {
   }
 
   const total = cart.reduce(
-  (sum, item) => sum + Number(item.price) * item.quantity,
-  0
-);
+    (sum, item) => sum + Number(item.price) * item.quantity,
+    0,
+  );
 
-
-//   if (cart.length === 0) return <p>Cart is empty</p>;
+  //   if (cart.length === 0) return <p>Cart is empty</p>;
 
   return (
-     <div className="pt-24 pb-5 px-4 md:px-16 max-w-5xl mx-auto">
+    <div className="pt-24 pb-5 px-4 md:px-16 max-w-5xl mx-auto">
       <h1 className="text-2xl md:text-3xl font-bold mb-6">Your Cart</h1>
       <div className="space-y-4">
         {cart.map((item) => (
@@ -25,16 +24,22 @@ export default function CartPage() {
             key={item.id}
             className="flex flex-col sm:flex-row justify-between items-start sm:items-center border rounded-lg p-4 shadow-sm"
           >
-            <div>
-              <p className="font-semibold text-base md:text-lg">
-                {item.title}
-              </p>
-              <p className="text-sm text-gray-500">
-                Quantity: {item.quantity}
-              </p>
+            <div className="flex items-center gap-4">
+              <img
+                src={item.img}
+                alt={item.title}
+                className="w-24 h-24 object-cover rounded"
+              />
+              <div>
+                <p className="font-semibold text-base md:text-lg">
+                  {item.title}
+                </p>
+                <p className="text-sm text-gray-500">
+                  Quantity: {item.quantity}
+                </p>
+              </div>
             </div>
-
-             <div className="flex items-center gap-4 mt-3 sm:mt-0">
+            <div className="flex items-center gap-4 mt-3 sm:mt-0">
               <p className="font-semibold">
                 ₹{Number(item.price) * item.quantity}
               </p>
@@ -53,7 +58,7 @@ export default function CartPage() {
       {/* Total */}
       <div className="flex flex-col sm:flex-row justify-between items-center mt-8 border-t pt-4">
         <h2 className="text-xl font-bold">Total: ₹{total}</h2>
-         <button
+        <button
           onClick={clearCart}
           className="mt-3 sm:mt-0 border px-5 py-2 rounded hover:bg-black hover:text-white transition"
         >
