@@ -8,6 +8,7 @@ export default function OrderPage() {
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
 
   const total = cart.reduce(
     (sum, item) => sum + Number(item.price) * item.quantity,
@@ -53,18 +54,27 @@ export default function OrderPage() {
             onChange={(e) => setName(e.target.value)}
           />
 
+
           <input
             className="border border-gray-600 p-2 w-full rounded"
-            placeholder="Address"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
+            placeholder="E-mail"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
+          
 
           <input
             className="border border-gray-600 p-2 w-full rounded"
             placeholder="Phone Number"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
+          />
+
+          <input
+            className="border border-gray-600 p-2 w-full rounded"
+            placeholder="Address"
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
           />
 
           <button

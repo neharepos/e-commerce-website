@@ -16,7 +16,7 @@ export default function ProductClient({ product }: { product: any }) {
       img: product.img.src,
     });
 
-    router.push("/order"); // 👉 go to order page
+    router.push("/order"); //  go to order page
   };
 
   return (

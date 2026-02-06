@@ -2,7 +2,6 @@
 import { useCart } from "../context/CartContext";
 import Link from "next/link";
 
-
 export default function CartPage() {
   const { cart, removeFromCart, clearCart } = useCart();
 
@@ -18,8 +17,10 @@ export default function CartPage() {
   //   if (cart.length === 0) return <p>Cart is empty</p>;
 
   return (
-    <div className="pt-24 pb-5 px-4 md:px-16 max-w-5xl mx-auto">
-      <h1 className="text-2xl md:text-3xl font-bold mb-6">Your Cart</h1>
+    <div className="pt-12 pb-5 px-12 md:px-16 max-w-5xl mx-auto">
+      <h1 className="text-2xl md:text-3xl font-bold mb-6 font-serif">
+        Your Cart
+      </h1>
       <div className="space-y-4">
         {cart.map((item) => (
           <div
@@ -57,25 +58,21 @@ export default function CartPage() {
         ))}
       </div>
 
-    <div className="flex flex-col sm:flex-row gap-4 mt-4">
-          <h2 className="text-xl font-bold">Total: ₹{total}</h2> 
-  <button
-    onClick={clearCart}
-    className="border px-5 py-2 rounded hover:bg-black hover:text-white transition"
-  >
-    Clear Cart
-  </button>
+      <div className="flex flex-col sm:flex-row gap-4 mt-4">
+        <h2 className="text-xl font-bold font-mono">Total: ₹{total}</h2>
+        <button
+          onClick={clearCart}
+          className="border w-full sm:w-auto px-5 py-2 rounded-xl bg-black text-white transition hover:bg-gray-800"
+        >
+          Clear Cart
+        </button>
 
-  <Link href="/order">
-    <button className="bg-black text-white px-6 py-2  border rounded hover:bg-gray-800">
-      Proceed to Order
-    </button>
-  </Link>
-</div>
-
-
-
-
+        <Link href="/order">
+          <button className="w-full sm:w-auto border px-5 py-2 rounded-xl bg-black text-white transition hover:bg-gray-800">
+            Proceed to Order
+          </button>
+        </Link>
+      </div>
     </div>
   );
 }
