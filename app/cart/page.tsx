@@ -1,5 +1,7 @@
 "use client";
 import { useCart } from "../context/CartContext";
+import Link from "next/link";
+
 
 export default function CartPage() {
   const { cart, removeFromCart, clearCart } = useCart();
@@ -55,16 +57,25 @@ export default function CartPage() {
         ))}
       </div>
 
-      {/* Total */}
-      <div className="flex flex-col sm:flex-row justify-between items-center mt-8 border-t pt-4">
-        <h2 className="text-xl font-bold">Total: ₹{total}</h2>
-        <button
-          onClick={clearCart}
-          className="mt-3 sm:mt-0 border px-5 py-2 rounded hover:bg-black hover:text-white transition"
-        >
-          Clear Cart
-        </button>
-      </div>
+    <div className="flex flex-col sm:flex-row gap-4 mt-4">
+          <h2 className="text-xl font-bold">Total: ₹{total}</h2> 
+  <button
+    onClick={clearCart}
+    className="border px-5 py-2 rounded hover:bg-black hover:text-white transition"
+  >
+    Clear Cart
+  </button>
+
+  <Link href="/order">
+    <button className="bg-black text-white px-6 py-2  border rounded hover:bg-gray-800">
+      Proceed to Order
+    </button>
+  </Link>
+</div>
+
+
+
+
     </div>
   );
 }
