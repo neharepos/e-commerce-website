@@ -30,8 +30,25 @@ export default function OrderPage() {
       ];
     }
   } else if (from === "cart") {
-    itemsToOrder = cart;
-  }
+    const grouped = cart.reduce((acc: any, id: number) => {
+      acc[id] = (acc[id] || 0) + 1;
+      return acc;
+    }, {});
+
+   itemsToOrder = Object.entries(grouped).map(([id, quantity]) => {
+      const product = ProductsData.find(
+        (p) => p.id === Number(id)
+      );
+
+      if (!product) return null;
+
+      return {
+        ...product,
+        quantity,
+        img: product.img.src,
+      };
+    }).filter(Boolean);
+  } 
 
   if (itemsToOrder.length === 0) {
     return <p className="pt-24 text-center">No items to order</p>;
@@ -58,7 +75,7 @@ export default function OrderPage() {
 
     const orderData = {
       customer: { name, address, phone },
-      items: cart,
+      items: itemsToOrder,
       total,
       date: new Date().toISOString(),
     };

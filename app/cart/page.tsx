@@ -87,7 +87,7 @@ export default function CartPage() {
           Clear Cart
         </button>
 
-        <Link href="/order">
+        <Link href="/order?from=cart">
           <button className="w-full sm:w-auto border px-5 py-2 rounded-xl bg-black text-white hover:bg-gray-800">
             Proceed to Order
           </button>
