@@ -4,6 +4,16 @@ import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { ProductsData } from "../data/products/page";
 
+
+type OrderItem = {
+  id: number;
+  title: string;
+  price: number;
+  img: string;
+  quantity: number;
+};
+
+
 export default function OrderPage() {
 
   const { cart, clearCart } = useCart();
@@ -12,7 +22,7 @@ export default function OrderPage() {
   const from = searchParams.get("from");   
   const productId = searchParams.get("id"); 
 
-  let itemsToOrder = [];
+  let itemsToOrder: OrderItem[] = [];
 
   if (from === "product" && productId) {
     const product = ProductsData.find(
@@ -23,32 +33,33 @@ export default function OrderPage() {
      if (product) {
       itemsToOrder = [
         {
-          ...product,
-          quantity: 1,
+           id: product.id,
+          title: product.title,
+          price: Number(product.price),
           img: product.img.src,
+          quantity: 1,
         },
       ];
     }
   } else if (from === "cart") {
-    const grouped = cart.reduce((acc: any, id: number) => {
-      acc[id] = (acc[id] || 0) + 1;
-      return acc;
-    }, {});
+      itemsToOrder = cart
+      .map((item) => {
+        const product = ProductsData.find(
+          (p) => p.id === item.id
+        );
 
-   itemsToOrder = Object.entries(grouped).map(([id, quantity]) => {
-      const product = ProductsData.find(
-        (p) => p.id === Number(id)
-      );
+        if (!product) return null;
 
-      if (!product) return null;
-
-      return {
-        ...product,
-        quantity,
-        img: product.img.src,
-      };
-    }).filter(Boolean);
-  } 
+        return {
+          id: product.id,
+          title: product.title,
+          price: Number(product.price),
+          img: product.img.src,
+          quantity: item.quantity,
+        };
+      })
+      .filter(Boolean) as OrderItem[];
+  }
 
   if (itemsToOrder.length === 0) {
     return <p className="pt-24 text-center">No items to order</p>;

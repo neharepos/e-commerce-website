@@ -1,13 +1,13 @@
 "use client";
 import { createContext, useContext, useEffect, useState } from "react";
 
-// type CartItem = {
-//   id: number;
-//   // quantity: number;
-// };
+type CartItem = {
+  id: number;
+  quantity: number;
+};
 
 type CartContextType = {
-  cart: number[];
+  cart: CartItem[];
   addToCart: (id: number) => void;
   removeFromCart: (id: number) => void;
   clearCart: () => void;
@@ -16,7 +16,7 @@ type CartContextType = {
 const CartContext = createContext<CartContextType | null>(null);
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
-  const [cart, setCart] = useState<number[]>([]);
+  const [cart, setCart] = useState<CartItem[]>([]);
 
   // load from localStorage
   useEffect(() => {
@@ -30,20 +30,31 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   }, [cart]);
 
   const addToCart = (id: number) => {
-    setCart(prev => [...prev, id]);
+    setCart(prev => {
+      const existing = prev.find(item => item.id === id);
+
+      if (existing) {
+        return prev.map(item =>
+          item.id === id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
+      }
+     return [...prev, { id, quantity: 1 }];
+    });
   };
 
   const removeFromCart = (id: number) => {
-    // setCart(prev => prev.filter(item => item.id !== id));
-    const index = cart.indexOf(id);
-    if (index === -1) return;
-
-    const copy = [...cart];
-    copy.splice(index, 1);
-    setCart(copy);
+    setCart(prev => prev.filter(item => item.id !== id));
+    
   };
 
-  const clearCart = () => setCart([]);
+  const clearCart = () => 
+    {
+      setCart([]);
+      localStorage.removeItem("cart");
+
+    }
 
   return (
     <CartContext.Provider value={{ cart, addToCart, removeFromCart, clearCart }}>

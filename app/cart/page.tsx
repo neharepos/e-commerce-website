@@ -10,22 +10,18 @@ export default function CartPage() {
     return <p className="pt-24 text-center">Your cart is empty</p>;
   }
 
-   const cartMap: Record<number, number> = {};
-
-
-    cart.forEach((id) => {
-    cartMap[id] = (cartMap[id] || 0) + 1;
-  }); 
+   
 
   // rebuild product objects from ids
-  const cartWithDetails = Object.entries(cartMap)
-    .map(([id, quantity]) => {
-      const product = ProductsData.find((p) => p.id === Number(id));
+  const cartWithDetails = cart
+    .map(item => {
+      const product = ProductsData.find(p => p.id === item.id);
       if (!product) return null;
 
       return {
         ...product,
-        quantity,
+        quantity: item.quantity,
+        img: product.img.src,
       };
     })
     .filter(Boolean);
@@ -49,7 +45,7 @@ export default function CartPage() {
           >
             <div className="flex items-center gap-4">
               <img
-                src={item.img.src}
+                src={item.img}
                 alt={item.title}
                 className="w-24 h-24 object-cover rounded"
               />
