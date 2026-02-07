@@ -9,14 +9,7 @@ export default function ProductClient({ product }: { product: any }) {
    const router = useRouter();
 
   const handleOrderNow = () => {
-    addToCart({
-      id: product.id,
-      title: product.title,
-      price: Number(product.price),
-      img: product.img.src,
-    });
-
-    router.push("/order"); //  go to order page
+    router.push(`/order?from=product&id=${product.id}`); //  go to order page
   };
 
   return (
@@ -38,12 +31,9 @@ export default function ProductClient({ product }: { product: any }) {
 
           <button
             onClick={() =>
-              addToCart({
-                id: product.id,
-                title: product.title,
-                price: Number(product.price),
-                img: product.img.src,
-              })
+              addToCart(
+               product.id
+              )
             }
             className="bg-black text-white px-10 py-3 rounded-full hover:bg-gray-800"
           >

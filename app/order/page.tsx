@@ -1,19 +1,54 @@
 "use client";
 import { useCart } from "../context/CartContext";
 import { useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { ProductsData } from "../data/products/page";
 
 export default function OrderPage() {
+
   const { cart, clearCart } = useCart();
+  const searchParams = useSearchParams();
+
+  const from = searchParams.get("from");   
+  const productId = searchParams.get("id"); 
+
+  let itemsToOrder = [];
+
+  if (from === "product" && productId) {
+    const product = ProductsData.find(
+      (p) => p.id.toString() === productId
+    );
+
+   
+     if (product) {
+      itemsToOrder = [
+        {
+          ...product,
+          quantity: 1,
+          img: product.img.src,
+        },
+      ];
+    }
+  } else if (from === "cart") {
+    itemsToOrder = cart;
+  }
+
+  if (itemsToOrder.length === 0) {
+    return <p className="pt-24 text-center">No items to order</p>;
+  }
+
+
+  const total = itemsToOrder.reduce(
+    (sum, item) => sum + Number(item.price) * item.quantity,
+    0,
+  );
 
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
 
-  const total = cart.reduce(
-    (sum, item) => sum + Number(item.price) * item.quantity,
-    0,
-  );
+  
 
   const PlaceOrder = () => {
     if (!name || !address || !phone) {
@@ -33,9 +68,7 @@ export default function OrderPage() {
     alert("Order placed successfully!");
   };
 
-  if (cart.length === 0) {
-    return <p className="pt-24 text-center">Your cart is empty</p>;
-  }
+  
 
   return (
     <div className="pt-12 max-w-7xl mx-auto p-12">
@@ -92,7 +125,7 @@ export default function OrderPage() {
             Here are your Orders
           </h2>
 
-          {cart.map((item) => (
+          {itemsToOrder.map((item) => (
             <div
               key={item.id}
               className="flex gap-4 items-center border-b border-gray-700 pb-3"
@@ -120,5 +153,5 @@ export default function OrderPage() {
         </div>
       </div>
     </div>
-  );
-}
+  )};
+  
