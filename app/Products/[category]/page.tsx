@@ -43,7 +43,7 @@ const CategoryPage = () => {
         {orderedProducts.map((product) => (
           <Link
             key={product.id}
-            href={`/Products/${categoryName}/item/${product.id}`}
+            href={`/products/${categoryName}/item/${product.id}`}
             className="group flex flex-col h-full cursor-pointer"
           >
             <div key={product.id} className="group flex flex-col h-full">

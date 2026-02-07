@@ -17,22 +17,22 @@ const Menu = [
   {
     id: 2,
     name: "Top Rated",
-    link: "/Products/top-rated",
+    link: "/products/top-rated",
   },
   {
     id: 3,
     name: "Kids Wear",
-    link: "/Products/kids",
+    link: "/products/kids",
   },
   {
     id: 4,
     name: "Mens Wear",
-    link: "/Products/men",
+    link: "/products/men",
   },
   {
     id: 5,
     name: "Electronics",
-    link: "/Products/electronics",
+    link: "/products/electronics",
   },
 ];
 
@@ -40,17 +40,17 @@ const DropdownLinks = [
   {
     id: 1,
     name: "Trending Products",
-    link: "/Products/trending",
+    link: "/products/trending",
   },
   {
     id: 2,
     name: "Best Selling",
-    link: "/Products/best-selling",
+    link: "/products/best-selling",
   },
   {
     id: 3,
     name: "Top Rated",
-    link: "/Products/top-rated",
+    link: "/products/top-rated",
   },
 ];
 

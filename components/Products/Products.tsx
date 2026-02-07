@@ -85,7 +85,7 @@ const Products = () => {
             {/* card section */}
             {ProductsData.map((data) => (
               <Link
-                href={`/Products/${data.category}`}
+                href={`/products/${data.category}`}
                 key={data.id}
                 className="cursor-pointer" // Changes the mouse to a hand icon
               >
@@ -116,7 +116,7 @@ const Products = () => {
 
           {/* view all button */}
           <div className="flex justify-center">
-            <Link href="/Products">
+            <Link href="/products">
             <button
               className="text-center mt-10
                   cursor-pointer bg-orange-400 text-white py-1 
