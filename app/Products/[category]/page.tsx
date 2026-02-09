@@ -1,20 +1,39 @@
 "use client";
 import { useParams } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { ProductsData } from "../../data/products/page";
+// import { ProductsData } from "../../data/products/page";
+
+type Product = {
+  id: number;
+  title: string;
+  price: number;
+  rating: number;
+  category: string;
+  img: { src: string };
+};
 
 const CategoryPage = () => {
   const { category } = useParams();
   const [sortBy, setSortBy] = useState("default");
+  const [products, setProducts] = useState<Product[]>([]);
 
   const categoryName = Array.isArray(category) ? category[0] : category;
 
-  const filteredProducts = ProductsData.filter(
-    (item) => item.category.toLowerCase() === categoryName?.toLowerCase(),
-  );
+  useEffect(() => {
+    if(!categoryName) return;
 
-  const orderedProducts = [...filteredProducts].sort((a, b) => {
+    const fetchCategoryProducts = async() => {
+      const res = await fetch(`/api/category?category=${categoryName}`);
+      const data = await res.json();
+      setProducts(data);
+    };
+
+    fetchCategoryProducts();
+  }, [categoryName]);
+
+
+  const orderedProducts = [...products].sort((a, b) => {
     if (sortBy === "price-low") return Number(a.price) - Number(b.price);
     if (sortBy === "price-high") return Number(b.price) - Number(a.price);
     if (sortBy === "rating") return b.rating - a.rating;
