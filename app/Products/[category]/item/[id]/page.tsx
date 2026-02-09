@@ -1,6 +1,18 @@
-import { ProductsData } from "@/app/data/products/page";
 import { notFound } from "next/navigation";
 import ProductClient from "./ProductClient";
+
+async function getProduct(id: string){
+  const res = await fetch(`http://localhost:3000/api/products/${id}`,{
+    cache:"no store",
+  });
+
+  if (!res.ok) 
+    {
+      return null;
+    }
+
+  return res.json();
+}
 
 export default async function ProductDetailPage({
   params,
@@ -9,9 +21,7 @@ export default async function ProductDetailPage({
 }) {
   const { id } = await params;
 
-  const product = ProductsData.find(
-    (p) => p.id.toString() === id
-  );
+  const product = await getProduct(id);
 
   if (!product) return notFound();
 

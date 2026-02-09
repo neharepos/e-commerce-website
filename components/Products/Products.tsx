@@ -1,65 +1,23 @@
 import React from "react";
-import Img1 from "../../public/women/women1.jpg";
-import Img2 from "../../public/women/women2.jpg";
-import Img3 from "../../public/women/womenn3.jpeg";
-import Img4 from "../../public/women/women4.jpg";
-import Img5 from "../../public/women/women5.jpg";
 import { IoStarSharp } from "react-icons/io5";
 import Link from "next/link";
 // import { useCart } from "@/app/context/CartContex";
 
-const ProductsData = [
-  {
-    id: 1,
-    img: Img1,
-    title: "Women Ethnic",
-    rating: 5.0,
-    color: "white",
-    category: "ethnic",
-    aosDelay: "0",
-  },
-  {
-    id: 2,
-    img: Img2,
-    title: "Women western",
-    rating: 4.5,
-    color: "Red",
-    category: "western",
-    aosDelay: "200",
-  },
-  {
-    id: 3,
-    img: Img3,
-    title: "Goggles",
-    category: "goggles",
-    rating: 4.7,
-    color: "brown",
-    aosDelay: "400",
-  },
-  {
-    id: 4,
-    img: Img4,
-    title: "Printed T-Shirt",
-    rating: 4.4,
-    color: "Yellow",
-    category: "printedtshirts",
-    aosDelay: "600",
-  },
-  {
-    id: 5,
-    img: Img5,
-    title: "Fashin T-Shirt",
-    rating: 4.5,
-    color: "Pink",
-    category: "fashiontshirts",
-    aosDelay: "800",
-  },
-];
+type Product={
+  id: number;
+  title: string;
+  rating: number;
+  color: string;
+  category: string;
+  img: {src: string };
+  aosDelay?: string;
+}
 
-const Products = () => {
-  const topRatedProducts = [...ProductsData]
+const Products = ({ products }: { products: Product[] }) => {
+  const topRatedProducts = [...products]
     .sort((a, b) => b.rating - a.rating)
     .slice(0, 5);
+
   return (
     <div className="mt-14 mb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-75">
@@ -83,9 +41,9 @@ const Products = () => {
                 lg:grid-cols-5 place-items-center gap-5"
           >
             {/* card section */}
-            {ProductsData.map((data) => (
+            {topRatedProducts.map((data) => (
               <Link
-                href={`/products/${data.category}`}
+                href={`/products/${data.category}/item/${data.id}`}
                 key={data.id}
                 className="cursor-pointer" // Changes the mouse to a hand icon
               >
