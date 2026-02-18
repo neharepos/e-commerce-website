@@ -1,18 +1,31 @@
 import { notFound } from "next/navigation";
 import ProductClient from "./ProductClient";
 
-async function getProduct(id: string){
-  const res = await fetch(`http://localhost:3000/api/products/${id}`,{
-    cache:"no store",
+// async function getProduct(id: string){
+//   const res = await fetch(`http://localhost:3000/api/products/${id}`,{
+//     cache:"no store",
+//   });
+
+//   if (!res.ok) 
+//     {
+//       return null;
+//     }
+
+//   return res.json();
+// }
+
+async function getProduct(id: string) {
+  const res = await fetch(`http://localhost:3000/api/products/${id}`, {
+    cache: "no-store",
   });
 
-  if (!res.ok) 
-    {
-      return null;
-    }
+  if (!res.ok) {
+    throw new Error("Failed to fetch product");
+  }
 
   return res.json();
 }
+
 
 export default async function ProductDetailPage({
   params,
