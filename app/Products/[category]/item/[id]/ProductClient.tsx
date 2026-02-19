@@ -4,13 +4,20 @@ import { useCart } from "@/app/context/CartContext";
 import { useRouter } from "next/navigation";
 
 export default function ProductClient({ product }: { product: any }) {
+  // console.log("Current Product Data:", product);
   const { addToCart } = useCart();
 
    const router = useRouter();
 
+  const handleAddToCart = () => {
+    addToCart(Number(product.id)); // ✅ must be number
+  };
+
   const handleOrderNow = () => {
     router.push(`/order?from=product&id=${product.id}`); //  go to order page
   };
+
+  if (!product) return null;
 
   return (
     <div className="pt-32 px-4 md:px-14 container mx-auto pb-6">
@@ -18,7 +25,7 @@ export default function ProductClient({ product }: { product: any }) {
         
         <div className="flex-1">
           <img
-            src={product.img.src}
+            src={product.image}
             alt={product.title}
             className="rounded-3xl w-full object-cover"
           />
@@ -31,9 +38,7 @@ export default function ProductClient({ product }: { product: any }) {
 
           <button
             onClick={() =>
-              addToCart(
-               product.id
-              )
+              addToCart(Number(product.id))
             }
             className="bg-black text-white px-10 py-3 rounded-full hover:bg-gray-800"
           >

@@ -1,9 +1,12 @@
 import { notFound } from "next/navigation";
 import ProductClient from "./ProductClient";
-
+import { db } from "@/src/lib/db";
+import { products } from "@/src/db/schema";
+import { eq } from "drizzle-orm";
+// import { products } from "../../../../lib/schema";
 // async function getProduct(id: string){
 //   const res = await fetch(`http://localhost:3000/api/products/${id}`,{
-//     cache:"no store",
+//     cache:"no-store",
 //   });
 
 //   if (!res.ok) 
@@ -15,15 +18,20 @@ import ProductClient from "./ProductClient";
 // }
 
 async function getProduct(id: string) {
-  const res = await fetch(`http://localhost:3000/api/products/${id}`, {
-    cache: "no-store",
-  });
+  const numericId = Number(id);
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch product");
+  if (isNaN(numericId)) {
+    return null;
   }
 
-  return res.json();
+
+  const product = await db
+    .select()
+    .from(products)
+    .where(eq(products.id, Number(id)))
+    .limit(1); // fetch single product
+
+  return product[0];
 }
 
 
