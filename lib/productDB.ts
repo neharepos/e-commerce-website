@@ -241,7 +241,7 @@ let products = [
 
   {
   id: 19,
-  img: "/printedtshirts/Img19.jpg",
+  img: "/printedtshirts/women1.jpg",
   title: "Artistic Graphic Print T-Shirt",
   slug: "artistic-graphic-print-tshirt",
   rating: 7.0,
@@ -254,7 +254,7 @@ let products = [
 },
 {
   id: 20,
-  img: "/printedtshirts/Img20.jpg",
+  img: "/printedtshirts/women2.jpg",
   title: "Abstract Pattern Print Tee",
   slug: "abstract-pattern-print-tee",
   rating: 7.0,
@@ -267,7 +267,7 @@ let products = [
 },
 {
   id: 21,
-  img: "/printedtshirts/Img21.jpg",
+  img: "/printedtshirts/women3.jpg",
   title: "Casual Lightweight Print T-Shirt",
   slug: "casual-lightweight-print-tshirt",
   rating: 7.0,
@@ -280,7 +280,7 @@ let products = [
 },
 {
   id: 22,
-  img: "/printedtshirts/Img22.jpg",
+  img: "/printedtshirts/women4.jpg",
   title: "Inspirational Quote Print Tee",
   slug: "inspirational-quote-print-tee",
   rating: 4.0,
@@ -293,7 +293,7 @@ let products = [
 },
 {
   id: 23,
-  img: "/printedtshirts/Img23.jpg",
+  img: "/printedtshirts/women5.webp",
   title: "Floral Summer Print T-Shirt",
   slug: "floral-summer-print-tshirt",
   rating: 6.0,
@@ -306,7 +306,7 @@ let products = [
 },
 {
   id: 24,
-  img: "/printedtshirts/Img24.jpg",
+  img: "/printedtshirts/women6.webp",
   title: "Pop Art Printed T-Shirt",
   slug: "pop-art-printed-tshirt",
   rating: 7.0,
@@ -319,7 +319,7 @@ let products = [
 },
 {
   id: 25,
-  img: "/fashiontshirt/Img25.jpg",
+  img: "/fashiontshirt/women1.webp",
   title: "Ribbed Fitted Fashion T-Shirt",
   slug: "ribbed-fitted-fashion-tshirt",
   rating: 7.0,
@@ -332,7 +332,7 @@ let products = [
 },
 {
   id: 26,
-  img: "/fashiontshirt/Img26.jpg",
+  img: "/fashiontshirt/women2.jpg",
   title: "Classic Crew Neck Fashion T-Shirt",
   slug: "classic-crew-neck-fashion-tshirt",
   rating: 7.0,
@@ -345,7 +345,7 @@ let products = [
 },
 {
   id: 27,
-  img: "/fashiontshirt/Img27.jpg",
+  img: "/fashiontshirt/women3.jpg",
   title: "Moisture Wicking Fashion T-Shirt",
   slug: "moisture-wicking-fashion-tshirt",
   rating: 7.0,
@@ -358,7 +358,7 @@ let products = [
 },
 {
   id: 28,
-  img: "/fashiontshirt/Img28.jpg",
+  img: "/fashiontshirt/women4.jpg",
   title: "V-Neck Slim Fit Fashion T-Shirt",
   slug: "v-neck-slim-fit-fashion-tshirt",
   rating: 7.0,
@@ -371,7 +371,7 @@ let products = [
 },
 {
   id: 29,
-  img: "/fashiontshirt/Img29.jpg",
+  img: "/fashiontshirt/women5.webp",
   title: "Streetwear Fashion Tee",
   slug: "streetwear-fashion-tee",
   rating: 7.0,
@@ -384,7 +384,7 @@ let products = [
 },
 {
   id: 30,
-  img: "/fashiontshirt/Img30.jpg",
+  img: "/fashiontshirt/women6.jpg",
   title: "Trendy Top Fashion T-Shirt",
   slug: "trendy-top-fashion-tshirt",
   rating: 7.0,
@@ -397,7 +397,7 @@ let products = [
 },
 {
   id: 31,
-  img: "/kids/Img31.jpg",
+  img: "/kids/boys/Img31.webp",
   title: "Boys Cotton Polo T-Shirt",
   slug: "boys-polo-tee",
   rating: 4.5,
@@ -411,7 +411,7 @@ let products = [
 },
 {
   id: 32,
-  img: "/kids/Img32.jpg",
+  img: "/kids/boys/Img32.jpg",
   title: "Boys Graphic Print Tee",
   slug: "boys-graphic-tee",
   rating: 4.2,
@@ -425,7 +425,7 @@ let products = [
 },
 {
   id: 33,
-  img: "/kids/Img33.jpg",
+  img: "/kids/boys/Img33.webp",
   title: "Boys Denim Jogger Pants",
   slug: "boys-denim-joggers",
   rating: 4.7,
@@ -439,7 +439,7 @@ let products = [
 },
 {
   id: 34,
-  img: "/kids/Img34.jpg",
+  img: "/kids/boys/Img34.webp",
   title: "Boys Striped Summer Shirt",
   slug: "boys-striped-shirt",
   rating: 4.4,
@@ -453,7 +453,7 @@ let products = [
 },
 {
   id: 35,
-  img: "/kids/Img35.jpg",
+  img: "/kids/boys/Img35.webp",
   title: "Boys Hooded Sweatshirt",
   slug: "boys-hoodie",
   rating: 4.8,
@@ -467,7 +467,7 @@ let products = [
 },
 {
   id: 36,
-  img: "/kids/Img36.jpg",
+  img: "/kids/boys/Img36.webp",
   title: "Boys Casual Shorts",
   slug: "boys-casual-shorts",
   rating: 4.3,
@@ -482,7 +482,7 @@ let products = [
 
 {
   id: 37,
-  img: "/kids/Img37.jpg",
+  img: "/kids/girls/Img37.jpg",
   title: "Girls Floral Summer Dress",
   slug: "girls-floral-dress",
   rating: 4.8,
@@ -496,7 +496,7 @@ let products = [
 },
 {
   id: 38,
-  img: "/kids/Img38.jpg",
+  img: "/kids/girls/Img38.webp",
   title: "Girls Embroidered Top",
   slug: "girls-embroidered-top",
   rating: 4.6,
@@ -510,7 +510,7 @@ let products = [
 },
 {
   id: 39,
-  img: "/kids/Img39.jpg",
+  img: "/kids/girls/Img39.jpg",
   title: "Girls Denim Skirt",
   slug: "girls-denim-skirt",
   rating: 4.4,
@@ -524,7 +524,7 @@ let products = [
 },
 {
   id: 40,
-  img: "/kids/Img40.jpg",
+  img: "/kids/girls/Img40.webp",
   title: "Girls Cotton Leggings",
   slug: "girls-cotton-leggings",
   rating: 4.5,
@@ -538,7 +538,7 @@ let products = [
 },
 {
   id: 41,
-  img: "/kids/Img41.jpg",
+  img: "/kids/girls/Img41.webp",
   title: "Girls Party Wear Gown",
   slug: "girls-party-gown",
   rating: 5.0,
@@ -552,7 +552,7 @@ let products = [
 },
 {
   id: 42,
-  img: "/kids/Img42.jpg",
+  img: "/kids/girls/Img42.webp",
   title: "Girls Casual Graphic Tee",
   slug: "girls-graphic-tee",
   rating: 4.3,
@@ -566,7 +566,7 @@ let products = [
 },
 {
   id: 43,
-  img: "/men/Img43.jpg",
+  img: "/mens/Img43.webp",
   title: "Men's Slim Fit Denim",
   slug: "mens-slim-denim",
   rating: 4.6,
@@ -579,7 +579,7 @@ let products = [
 },
 {
   id: 44,
-  img: "/men/Img44.jpg",
+  img: "/mens/Img44.jpg",
   title: "Men's Casual Linen Shirt",
   slug: "mens-linen-shirt",
   rating: 4.4,
@@ -592,7 +592,7 @@ let products = [
 },
 {
   id: 45,
-  img: "/men/Img45.jpg",
+  img: "/mens/Img45.jpg",
   title: "Men's Graphic Cotton Tee",
   slug: "mens-graphic-tee",
   rating: 4.2,
@@ -605,7 +605,7 @@ let products = [
 },
 {
   id: 46,
-  img: "/men/Img46.jpg",
+  img: "/mens/Img46.jpg",
   title: "Men's Chino Shorts",
   slug: "mens-chino-shorts",
   rating: 4.5,
@@ -618,12 +618,12 @@ let products = [
 },
 {
   id: 47,
-  img: "/men/Img47.jpg",
+  img: "/mens/Img47.jpg",
   title: "Men's Bomber Jacket",
   slug: "mens-bomber-jacket",
   rating: 4.8,
   category: "men",
-  price: "3499",
+  price: "33499",
   color: "Olive Green",
   isBestSeller: true,
   description: "Stylish olive green bomber jacket. Lightweight yet warm, making it the perfect layering piece for transitional weather.",
@@ -631,7 +631,7 @@ let products = [
 },
 {
   id: 48,
-  img: "/men/Img48.jpg",
+  img: "/mens/Img48.jpg",
   title: "Men's Formal Oxford Shirt",
   slug: "mens-formal-shirt",
   rating: 4.7,

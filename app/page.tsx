@@ -20,14 +20,31 @@ export default function Home() {
   };
 
   useEffect(() => {
-    const fetchHomeProducts = async() => {
+  const fetchHomeProducts = async () => {
+    try {
       const res = await fetch("/api/home");
       const data = await res.json();
-      setProducts(data);
-    };
+      
+      // 👉 Logic: If data is an array, use it directly. 
+      // If it's the object we planned for, use data.latestProducts.
+      if (Array.isArray(data)) {
+        setProducts(data);
+      } else if (data && data.latestProducts) {
+        setProducts(data.latestProducts);
+      } else {
+        console.error("Unknown data format:", data);
+        setProducts([]); 
+      }
+    } catch (error) {
+      console.error("Failed to fetch home products:", error);
+      setProducts([]);
+    }
+  };
 
-    fetchHomeProducts()
-  }, []);
+  fetchHomeProducts();
+}, []);
+
+
   return (
     <div className="p-10">
       <Hero handleOrderPopup={handleOrderPopup} />
