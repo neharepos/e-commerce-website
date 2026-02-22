@@ -6,6 +6,9 @@ import {
   text,
   timestamp,
 } from "drizzle-orm/pg-core";
+import { InferSelectModel, InferInsertModel } from "drizzle-orm";
+
+/* ===================== PRODUCTS ===================== */
 
 export const products = pgTable("products", {
   id: serial("id").primaryKey(),
@@ -16,9 +19,9 @@ export const products = pgTable("products", {
 
   category: varchar("category", { length: 50 }).notNull(),
 
-  description: text("description").notNull(), // ✅ product description
+  description: text("description").notNull(),
 
-  image: text("image").notNull(), // ✅ product image URL/path
+  image: text("image").notNull(),
 
   price: integer("price").notNull(),
 
@@ -26,6 +29,8 @@ export const products = pgTable("products", {
 
   createdAt: timestamp("created_at").defaultNow(),
 });
+
+/* ===================== ORDERS ===================== */
 
 export const orders = pgTable("orders", {
   id: serial("id").primaryKey(),
@@ -35,12 +40,15 @@ export const orders = pgTable("orders", {
   address: text("address").notNull(),
 
   totalAmount: integer("total_amount").notNull(),
+
   paymentMethod: text("payment_method").notNull(), // COD, UPI, Card
 
-  status: text("status").default("pending"), // pending, shipped, delivered
+  status: text("status").default("pending"),
 
-  createdAt: timestamp("created_at").defaultNow()
+  createdAt: timestamp("created_at").defaultNow(),
 });
+
+/* ===================== ORDER ITEMS ===================== */
 
 export const orderItems = pgTable("order_items", {
   id: serial("id").primaryKey(),
@@ -50,5 +58,19 @@ export const orderItems = pgTable("order_items", {
 
   title: text("title").notNull(),
   price: integer("price").notNull(),
-  quantity: integer("quantity").notNull()
+  quantity: integer("quantity").notNull(),
 });
+
+/* ===================== TYPES ===================== */
+
+// Product types
+export type Product = InferSelectModel<typeof products>;
+export type NewProduct = InferInsertModel<typeof products>;
+
+// Order types
+export type Order = InferSelectModel<typeof orders>;
+export type NewOrder = InferInsertModel<typeof orders>;
+
+// OrderItem types
+export type OrderItem = InferSelectModel<typeof orderItems>;
+export type NewOrderItem = InferInsertModel<typeof orderItems>;

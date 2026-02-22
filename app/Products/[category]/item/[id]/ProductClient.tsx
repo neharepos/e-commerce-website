@@ -56,3 +56,6 @@ export default function ProductClient({ product }: { product: any }) {
     </div>
   );
 }
+
+
+
