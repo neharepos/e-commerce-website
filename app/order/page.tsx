@@ -1,8 +1,8 @@
 "use client";
 import { useCart } from "../context/CartContext";
-import { useState } from "react";
-import { useSearchParams } from "next/navigation";
-import { ProductsData } from "../data/products/page";
+import { useState, useEffect } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
+// import { ProductsData } from "../data/products/page";
 
 
 type OrderItem = {
@@ -18,85 +18,94 @@ export default function OrderPage() {
 
   const { cart, clearCart } = useCart();
   const searchParams = useSearchParams();
+  const router = useRouter();
 
   const from = searchParams.get("from");   
   const productId = searchParams.get("id"); 
 
-  let itemsToOrder: OrderItem[] = [];
-
-  if (from === "product" && productId) {
-    const product = ProductsData.find(
-      (p) => p.id.toString() === productId
-    );
-
-   
-     if (product) {
-      itemsToOrder = [
-        {
-           id: product.id,
-          title: product.title,
-          price: Number(product.price),
-          img: product.img.src,
-          quantity: 1,
-        },
-      ];
-    }
-  } else if (from === "cart") {
-      itemsToOrder = cart
-      .map((item) => {
-        const product = ProductsData.find(
-          (p) => p.id === item.id
-        );
-
-        if (!product) return null;
-
-        return {
-          id: product.id,
-          title: product.title,
-          price: Number(product.price),
-          img: product.img.src,
-          quantity: item.quantity,
-        };
-      })
-      .filter(Boolean) as OrderItem[];
-  }
-
-  if (itemsToOrder.length === 0) {
-    return <p className="pt-24 text-center">No items to order</p>;
-  }
-
-
-  const total = itemsToOrder.reduce(
-    (sum, item) => sum + Number(item.price) * item.quantity,
-    0,
-  );
-
+  const [itemsToOrder, setItemsToOrder] = useState<OrderItem[]>([]);
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  
+  // let itemsToOrder: OrderItem[] = [];
 
-  const PlaceOrder = () => {
-    if (!name || !address || !phone) {
-      alert("Please fill your details");
+useEffect(() => {
+    async function loadOrderItems() {
+      const res = await fetch("/api/products");
+      const dbProducts: any[] = await res.json();
+
+      if (from === "product" && productId) {
+        const product = dbProducts.find((p) => p.id.toString() === productId);
+        if (product) {
+          setItemsToOrder([{
+            id: product.id,
+            title: product.title,
+            price: Number(product.price),
+            img: product.image, // Use 'image' field from DB
+            quantity: 1,
+          }]);
+        }
+      } else if (from === "cart") {
+        const cartItems = cart.map((item) => {
+          const product = dbProducts.find((p) => p.id === item.id);
+          if (!product) return null;
+          return {
+            id: product.id,
+            title: product.title,
+            price: Number(product.price),
+            img: product.image,
+            quantity: item.quantity,
+          };
+        }).filter(Boolean) as OrderItem[];
+        setItemsToOrder(cartItems);
+      }
+    }
+    loadOrderItems();
+  }, [from, productId, cart]);
+
+
+  const total = itemsToOrder.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+  const handlePlaceOrder = async () => {
+    if (!name || !address || !phone || !email) {
+      alert("Please fill all details");
       return;
     }
 
-    const orderData = {
-      customer: { name, address, phone },
-      items: itemsToOrder,
-      total,
-      date: new Date().toISOString(),
-    };
+    setIsSubmitting(true);
+    try {
+      const res = await fetch("/api/orders", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          customerName: name,
+          email, address, phone,
+          totalAmount: total,
+          cartItems: itemsToOrder.map(item => ({
+            productId: item.id,
+            quantity: item.quantity,
+            price: item.price
+          }))
+        }),
+      });
 
-    localStorage.setItem("order", JSON.stringify(orderData));
-    clearCart();
-    alert("Order placed successfully!");
+      if (res.ok) {
+        const result = await res.json();
+        alert(`Order Placed! ID: ${result.orderId}`);
+        clearCart();
+        router.push("/");
+      }
+    } catch (err) {
+      alert("Checkout failed");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
-  
+  if (itemsToOrder.length === 0) return <p className="pt-24 text-center text-white bg-black min-h-screen">Loading order details...</p>;  
 
   return (
     <div className="pt-12 max-w-7xl mx-auto p-12">
@@ -138,11 +147,21 @@ export default function OrderPage() {
             onChange={(e) => setAddress(e.target.value)}
           />
 
-          <button
+          {/* <button
             onClick={PlaceOrder}
             className="bg-black border font-mono border-gray-600 text-white p-2 mt-3 rounded"
           >
             Place Order
+          </button> */}
+
+          <button
+            onClick={handlePlaceOrder}
+            disabled={isSubmitting}
+            className={`bg-orange-400 border font-mono border-gray-600 text-black font-bold p-2 mt-3 rounded w-full transition-all ${
+              isSubmitting ? "opacity-50 cursor-not-allowed" : "hover:bg-orange-500"
+            }`}
+          >
+            {isSubmitting ? "Processing..." : "Place Order"}
           </button>
         </div>
 
