@@ -1,7 +1,9 @@
 import { db } from "@/src/lib/db";
+import { generateUniqueFileName } from "@/src/lib/utils";
 import { products } from "@/src/db/schema";
 import { NextResponse } from "next/server";
 import { inArray, desc } from "drizzle-orm";
+
 
 export async function GET(req: Request) {
   try {
@@ -39,34 +41,45 @@ export async function GET(req: Request) {
 
 export async function POST(req: Request) {
   try {
-    const body = await req.json();
-    const { title, slug, category, description, image, price, stock } = body;
+    const formData = await req.formData();
+    
+    // Extract fields from FormData
+    const file = formData.get("image") as File;
+    const title = formData.get("title") as string;
+    const price = formData.get("price");
+    const stock = formData.get("stock");
+    const category = formData.get("category") as string;
+    const description = formData.get("description") as string;
 
-    // 👉 Strict Validation
-    if (!title || !slug || !category || !description || !image || price == null || stock == null) {
-      return NextResponse.json(
-        { error: "All fields are required" },
-        { status: 400 }
-      );
+    // Validation
+    if (!file || !title || !price || !category || !description) {
+      return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
     }
 
-    // 👉 Insert into Database
-    const [created] = await db
-      .insert(products)
-      .values({
-        title,
-        slug,
-        category,
-        description,
-        image,
-        price: Number(price),
-        stock: Number(stock),
-      })
-      .returning();
+    // 👉 Generate Unique Image Name
+    const uniqueName = generateUniqueFileName(file.name);
+    
+    // 👉 Image Path (This is what goes in your DB)
+    const imagePath = `/uploads/${uniqueName}`;
 
-    return NextResponse.json(created, { status: 201 });
-  } catch (error) {
+    // 👉 Insert into Database using Drizzle
+    const [newProduct] = await db.insert(products).values({
+      title: title,
+      slug: title.toLowerCase().replace(/ /g, "-"), // Auto-generate slug
+      category: category,
+      description: description,
+      image: imagePath, 
+      price: Number(price),
+      stock: stock ? Number(stock) : 0,
+    }).returning();
+
+    return NextResponse.json({ 
+      message: "Product created successfully!", 
+      product: newProduct 
+    }, { status: 201 });
+
+  } catch (error: any) {
     console.error("POST Product Error:", error);
-    return NextResponse.json({ error: "Failed to create product" }, { status: 500 });
+    return NextResponse.json({ error: error.message || "Failed to create product" }, { status: 500 });
   }
 }
