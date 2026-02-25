@@ -19,7 +19,7 @@
 //   res.status(200).json(orderWithItems);
 // }
 
-
+import { eq, desc } from "drizzle-orm";
 import { db } from "@/src/lib/db";
 import { orders, orderItems } from "@/src/db/schema";
 import { NextResponse } from "next/server";
@@ -89,5 +89,40 @@ export async function POST(req: Request) {
       { error: "Could not save order to database" }, 
       { status: 500 }
     );
+  }
+}
+
+
+export async function GET(req: Request) {
+  try {
+    const { searchParams } = new URL(req.url);
+    const isAdmin = searchParams.get("admin") === "true";
+    const userId = searchParams.get("userId");
+
+    // 1. Logic for Admin Dashboard: Fetch ALL orders
+    if (isAdmin) {
+      const allOrders = await db
+        .select()
+        .from(orders)
+        .orderBy(desc(orders.id)); // Newest orders first
+
+      return NextResponse.json(allOrders);
+    }
+
+    // 2. Logic for User Profile: Fetch only THEIR orders
+    if (userId) {
+      const userOrders = await db
+        .select()
+        .from(orders)
+        .where(eq(orders.email, userId)) // Or use a userId column if you added one
+        .orderBy(desc(orders.id));
+
+      return NextResponse.json(userOrders);
+    }
+
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  } catch (error) {
+    console.error("GET Orders Error:", error);
+    return NextResponse.json({ error: "Failed to fetch orders" }, { status: 500 });
   }
 }
